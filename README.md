@@ -53,6 +53,7 @@ mftfiles/
       └── $MFT
 
 $ mft2es /mftfiles/ # The Path is recursively expanded to all MFT, and $MFT.
+Note: The directory in which an MFT file will be found will be added in Elasticsearch via `header.hostname`. As the MFT does not contain the hostname, the name of the folder will be used instead to differenciate one MFT from another.
 ```
 
 ### Options

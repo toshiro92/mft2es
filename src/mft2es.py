@@ -2,6 +2,7 @@
 import json
 import argparse
 import traceback
+import pathlib
 from hashlib import sha1
 from pathlib import Path
 from typing import List, Generator
@@ -94,7 +95,8 @@ class Mft2es(object):
                         result["attributes"][v]["header"]["residential_header"][
                             attribute
                         ] = hex(vnc)
-
+            path = pathlib.PurePath(self.path)
+            result["header"]["hostname"] = path.parent.name
             buffer.append(result)
 
             if len(buffer) >= size:
